@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markfolio - Markdown portfolio maker</title>
+    <link rel="stylesheet" href="./site-assets/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/markfolio.svg"
+      type="image/x-icon"
+    />
+    <meta name='HandheldFriendly' content='True'>
+    <meta name='og:title' content='Markfolio'>
+    <meta name='og:description' content='Visual Markdown Editor'>
+    <meta name='og:image' content='http://axorax.github.io/markfolio/images/thumbnail.png'>
+    <meta name='twitter:title' content='Markfolio'>
+    <meta name='twitter:description' content='Visual Markdown Editor'>
+    <meta name='twitter:image' content='http://axorax.github.io/markfolio/images/thumbnail.png'>
+    <meta name='description' content='Visual Markdown Editor'>
+    <meta name='topic' content='markdown'>
+    <meta name='keywords' content='markdown, markfolio'>
+    <meta name='author' content='axorax'>
+  </head>
+  <body>
+    
+    <section id="sidebar">
+      <div>
+
+        <div class="name">Markfolio</div>
+        
+        <div id="navigation">
+          <!-- <button>Home</button> -->
+          <button onclick="goToPage('scene', this)" class="active">
+            Scene Editor
+          </button>
+          <button onclick="goToPage('code-editor', this)">Code Editor</button>
+          <button onclick="goToPage('assets', this)">Assets Explorer</button>
+          <button onclick="goToPage('templates', this)">Templates</button>
+          <button onclick="goToPage('export', this)">Export</button>
+          <!-- <button onclick="loadMFOFile()">Load MFO File</button> -->
+          <a href="https://www.patreon.com/axorax" target="_blank" style="width: 100%;"><button style="width: 100%;">Donate</button></a>
+        </div>
+
+        <div id="properties-editor">
+          <div id="properties"></div>
+          <div class="properties-bottom">
+            <div class="duplicate">
+              <button>Duplicate</button>
+            </div>
+            <div class="delete">
+              <button>Delete</button>
+            </div>
+            <button id="exit-properties-editor" onclick="exitPropertiesEditor()">
+              Exit
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div id="new" class="second-section">
+      <div id="search-elements" class="search1">
+        <input type="text" placeholder="Search" />
+      </div>
+      <ul id="elements-list"></ul>
+      <div id="required-inputs">
+        <div class="name">Loading...</div>
+        <div class="contents"></div>
+        <button>Done</button>
+      </div>
+    </div>
+
+    <div id="code-editor-wrapper" class="second-section">
+      <h3>Code Editor</h3>
+
+      <div id="code-editor" contenteditable="true">
+        <div>
+          <br />
+        </div>
+      </div>
+      <button class="t2" onclick="saveCodeEditorChanges()">Save</button>
+    </div>
+
+    <div class="second-section" id="export-wrapper">
+      <div id="export-code-view">
+        <div>
+          <br />
+        </div>
+      </div>
+      <button id="export-copy" class="t2">Copy</button>
+      <button class="t2 outline" id="export-download">Download</button>
+    </div>
+
+    <div class="second-section" id="assets-explorer">
+      <div class="search1">
+        <input type="text" placeholder="Search" id="assets-search" />
+      </div>
+      <div id="all-assets"></div>
+    </div>
+
+    <div class="second-section" id="templates">
+      <div id="all-templates"></div>
+    </div>
+
+    <div id="preview-wrapper">
+      <div id="preview-options">
+        <button class="reload" onclick="reloadPreview()">Reload</button>
+        <button class="clear" onclick="clearPreview()" style="background: #ff4d4d;">Clear</button>
+      </div>
+      <div id="preview"></div>
+      <div id="confirm-box"></div>
+    </div>
+    
+    <div id="dump"></div>
+
+    <script src="data/templates.js"></script>
+    <script src="data/elements.js"></script>
+    <script src="data/assets.js"></script>
+    <script src="./site-assets/showdown.js"></script>
+    <script src="./site-assets/script.js" defer></script>
+  </body>
+</html>
